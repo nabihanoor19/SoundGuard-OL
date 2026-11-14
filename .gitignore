@@ -1,0 +1,38 @@
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Secrets
+.env
+*.pem
+
+# Model weights
+*.pt
+*.pth
+*.ckpt
+*.onnx
+
+# Training outputs
+outputs/
+mlruns/
+lightning_logs/
+
+# IDE
+.vscode/
+
+# DVC local credentials
+.dvc/config.local
+
+# Temporary files
+*.log
+.DS_Store
+Thumbs.db
