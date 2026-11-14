@@ -1,0 +1,9 @@
+{
+    "model": "AcousticCNN",
+    "accuracy": 0.3225,
+    "macro_f1": 0.2658701835538983,
+    "training_samples": 1600,
+    "testing_samples": 400,
+    "epochs": 8,
+    "test_fold": 5
+}

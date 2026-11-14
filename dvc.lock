@@ -71,3 +71,63 @@ stages:
       hash: md5
       md5: 68d36a55eb1385893390128e17f15ca3
       size: 46628
+  train_baseline:
+    cmd: python src/training/train_baseline.py
+    deps:
+    - path: data/processed/features.npy
+      hash: md5
+      md5: fdadca68ca82e5920e542524ea809b5c
+      size: 110592128
+    - path: data/processed/folds.npy
+      hash: md5
+      md5: d665b6c0059e0e770a6708456d4c0dea
+      size: 16128
+    - path: data/processed/labels.npy
+      hash: md5
+      md5: 960d8f50da888ef4e7b8b003c505a544
+      size: 16128
+    - path: src/training/train_baseline.py
+      hash: md5
+      md5: 13650bf8442763fb6560671207ab478e
+      size: 3522
+    outs:
+    - path: models/baseline_model.joblib
+      hash: md5
+      md5: 39f53cd796c510eaf77694b4a71547b9
+      size: 30625
+    - path: reports/baseline_metrics.json
+      hash: md5
+      md5: 3583b8a110ef0a56b709d727bc87bef8
+      size: 117
+  train_main:
+    cmd: python src/training/train_main.py
+    deps:
+    - path: data/processed/features.npy
+      hash: md5
+      md5: fdadca68ca82e5920e542524ea809b5c
+      size: 110592128
+    - path: data/processed/folds.npy
+      hash: md5
+      md5: d665b6c0059e0e770a6708456d4c0dea
+      size: 16128
+    - path: data/processed/labels.npy
+      hash: md5
+      md5: 960d8f50da888ef4e7b8b003c505a544
+      size: 16128
+    - path: src/models/cnn.py
+      hash: md5
+      md5: 07d4a17b399eb5a9fb9317a281783cd2
+      size: 896
+    - path: src/training/train_main.py
+      hash: md5
+      md5: b44f9ee3c8449b4de1a18b9d13e86d0c
+      size: 4940
+    outs:
+    - path: models/main_cnn.pth
+      hash: md5
+      md5: 0881d3b775992164e79c6583ef68254e
+      size: 116027
+    - path: reports/main_cnn_metrics.json
+      hash: md5
+      md5: 49bcc5cafadea9d4e0247ddd985c9bea
+      size: 193

@@ -1,0 +1,6 @@
+{
+    "accuracy": 0.44,
+    "macro_f1": 0.4215347823830796,
+    "train_samples": 1600,
+    "test_samples": 400
+}
