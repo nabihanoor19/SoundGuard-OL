@@ -1,0 +1,29 @@
+schema: '2.0'
+stages:
+  validate_dataset:
+    cmd: python data/validate.py
+    deps:
+    - path: data/raw/ESC-50/audio
+      hash: md5
+      md5: ee2bc7849ac3dcdbba5db607b00507ef.dir
+      size: 882088000
+      nfiles: 2000
+    - path: data/raw/ESC-50/meta/esc50.csv
+      hash: md5
+      md5: 9ce3b345bf565c4a2950b6a628b6e5f7
+      size: 95743
+    - path: data/validate.py
+      hash: md5
+      md5: 4f77c3e60644b8eedba7c7b6030b60d0
+      size: 2725
+    params:
+      params.yaml:
+        data.duration: 5.0
+        data.expected_classes: 50
+        data.expected_folds: 5
+        data.sample_rate: 44100
+    outs:
+    - path: reports/validation_report.json
+      hash: md5
+      md5: e79232ed329d0a1a96a5234f9add3426
+      size: 167

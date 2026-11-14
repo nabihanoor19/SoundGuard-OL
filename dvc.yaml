@@ -1,0 +1,15 @@
+
+stages:
+  validate_dataset:
+    cmd: python data/validate.py
+    deps:
+      - data/validate.py
+      - data/raw/ESC-50/audio
+      - data/raw/ESC-50/meta/esc50.csv
+    params:
+      - data.expected_classes
+      - data.expected_folds
+      - data.sample_rate
+      - data.duration
+    outs:
+      - reports/validation_report.json
