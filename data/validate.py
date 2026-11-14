@@ -43,6 +43,8 @@ def validate_esc50(data_dir: str, report_path: str):
 
     if metadata["category"].nunique() != 50:
         raise ValueError("Expected exactly 50 categories")
+    if not metadata["target"].between(0, 49).all():
+         raise ValueError("Invalid target labels: expected values between 0 and 49")
 
     if not metadata["fold"].between(1, 5).all():
         raise ValueError("Invalid fold values")
