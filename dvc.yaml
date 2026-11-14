@@ -13,3 +13,22 @@ stages:
       - data.duration
     outs:
       - reports/validation_report.json
+
+  preprocess_audio:
+    cmd: python src/preprocessing/audio_features.py
+    deps:
+      - src/preprocessing/audio_features.py
+      - data/raw/ESC-50/audio
+      - data/raw/ESC-50/meta/esc50.csv
+      - reports/validation_report.json
+    params:
+      - data.data_dir
+      - preprocessing.sample_rate
+      - preprocessing.n_mels
+      - preprocessing.n_fft
+      - preprocessing.hop_length
+    outs:
+      - data/processed/features.npy
+      - data/processed/labels.npy
+      - data/processed/folds.npy
+      - data/processed/metadata.csv

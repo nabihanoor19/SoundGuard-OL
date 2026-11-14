@@ -27,3 +27,47 @@ stages:
       hash: md5
       md5: e79232ed329d0a1a96a5234f9add3426
       size: 167
+  preprocess_audio:
+    cmd: python src/preprocessing/audio_features.py
+    deps:
+    - path: data/raw/ESC-50/audio
+      hash: md5
+      md5: ee2bc7849ac3dcdbba5db607b00507ef.dir
+      size: 882088000
+      nfiles: 2000
+    - path: data/raw/ESC-50/meta/esc50.csv
+      hash: md5
+      md5: 9ce3b345bf565c4a2950b6a628b6e5f7
+      size: 95743
+    - path: reports/validation_report.json
+      hash: md5
+      md5: e79232ed329d0a1a96a5234f9add3426
+      size: 167
+    - path: src/preprocessing/audio_features.py
+      hash: md5
+      md5: 64bcc784435d4d9dcd2646440026f8ad
+      size: 2059
+    params:
+      params.yaml:
+        data.data_dir: data/raw/ESC-50
+        preprocessing.hop_length: 512
+        preprocessing.n_fft: 1024
+        preprocessing.n_mels: 64
+        preprocessing.sample_rate: 22050
+    outs:
+    - path: data/processed/features.npy
+      hash: md5
+      md5: fdadca68ca82e5920e542524ea809b5c
+      size: 110592128
+    - path: data/processed/folds.npy
+      hash: md5
+      md5: d665b6c0059e0e770a6708456d4c0dea
+      size: 16128
+    - path: data/processed/labels.npy
+      hash: md5
+      md5: 960d8f50da888ef4e7b8b003c505a544
+      size: 16128
+    - path: data/processed/metadata.csv
+      hash: md5
+      md5: 68d36a55eb1385893390128e17f15ca3
+      size: 46628
